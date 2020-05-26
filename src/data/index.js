@@ -2,6 +2,7 @@ export default {
 
     start: {
         text: `It\'s an early summer morning. You are going for a walk in the woods near your house with some friends. You've been there many times before.  The birds are singing. It's still cool for a summer day, and the sky is overcast.  
+
 It's 11am, British Standard Time.`,
         images: ['dark_woods.jpg'],
     },
@@ -154,7 +155,7 @@ It's 11am, British Standard Time.`,
             question: `What is the code?`,
             images: ['wall_and_gate.jpg'],
             solutions: ['130'],
-            feedback: 'Enter a number',
+            feedback: 'Enter a 3-digit number',
             hint: 'Try looking in the rucksack again?',
             next: {
                 "130": 10,
@@ -251,9 +252,9 @@ It's 11am, British Standard Time.`,
             You walk into the building. Once, it was a stately home, but now the plants are taking it over. As you walk through the house, some of the inner rooms are still very grand, although very dusty. You decide to try and find the key for the locked gate outside. Perhaps it's hidden under something?`,
 
             question: `Where will you look for the gate key?`,
-            images: ['inside_ruined_building.jpg',' inside_building.jpg', 'wood_floor_room.jpg', 'abandoned_fancy_room'],
+            images: ['inside_ruined_building.jpg','inside_building.jpg', 'wood_floor_room.jpg', 'abandoned_fancy_room.jpg'],
             solutions: ['tablecloth', 'table cloth'],
-            feedback: 'test',
+            feedback: 'Type the name of the item you will look under',
             next: {
                 tablecloth: 31,
                 'table cloth': 31
@@ -265,38 +266,140 @@ It's 11am, British Standard Time.`,
 
         {
             id: 31,
-            text: `The gate unlocks. There's more flowers and more junk here, including a stack of worn suitcases. `,
+            text: `The gate unlocks. There's more flowers and more junk here, including a stack of worn suitcases. You look in the flower pot, and there's another key there. Perhaps it will open a suitcase?`,
             question: `Which suitcase will you try?`,
-            images: ['inside_ruined_building.jpg',' inside_building.jpg', 'wood_floor_room.jpg', 'abandoned_fancy_room'],
+            images: ['suitcases.jpg', 'ragweed.jpg'],
             solutions: ['top', 'middle', 'bottom'],
             feedback: '"Top", "Middle" or "Bottom" suitcase?',
             next: {
-                top: 31,
-                'table cloth': 31
+                top: 33,
+                middle: 34,
+                bottom: 32
             },
-            hint: 'Use the words on the bridge',
+            
+            canGoBack: true
+        },
+
+        {
+            id: 32,
+            text: ``,
+            images: ['suitcases.jpg'],
+            solutions: ['cliff'],
+            feedback: 'Who owns this suitcase?',
+            next: {
+                cliff: 35
+            },
+            canGoBack: true
+        },
+
+        {
+            id: 33,
+            text: `You open the top suitcase. There is a wide-mouthed frog inside.
+            "This is my house!" said the frog. "Guess who gave me this suitcase!" 
+            You have no idea. You suppose it's someone who used to live in the house. "Can you give me a clue?" You ask the frog.
+            "What do you call a man with a seagull on his head?" asks the frog.`,
+            images: ['suitcases.jpg'],
+            solutions: ['cliff'],
+            feedback: 'Who owns this suitcase?',
+            next: {
+                cliff: 35
+            },
+            canGoBack: true
+        },
+
+        {
+            id: 34,
+            text: `You open the middle suitcase. There is a wide-mouthed frog inside.
+            "This is my house!" said the frog. "Guess who gave me this suitcase!" 
+            You have no idea. You suppose it's someone who used to live in the house. "Can you give me a clue?" You ask the frog.
+            "What do you call a man without a spade on his head?" asks the frog.`,
+
+            images: ['suitcases.jpg'],
+            solutions: ['douglas'],
+            feedback: 'Who owns this suitcase?',
+            next: {
+                douglas: 36
+            },
+            canGoBack: true
+        },
+
+        {
+            id: 35,
+            text: `The frog is impressed by your knowlege. It tells you that the way out is close by, but you need to go through two more locked gates to get out.`,
+            images: ['middle_frog.jpg'],
+            question: 'Do you want to try another suitcase?',
+            solutions: ['yes'],
+            feedback: 'Type yes to continue',
+            next: {
+                yes: 36
+            },
+            canGoBack: true
+        },
+
+        {
+            id: 36,
+            text: `The frog is impressed by your knowlege. It tells you that the way out is close by, but you need to go through two more locked gates to get out.`,
+            images: ['top_frog.jpg'],
+            solutions: ['yes'],
+            feedback: 'Type yes to continue',
+            next: {
+                yes: 36
+            },
             canGoBack: true
         },
 
 
+    
 
-        // combine "Rachel" and "130" ?
-        // solve dad jokes (what do you call a man with a seagull on his head?)
-        // what do you call a man without a spade on his head?
+        {
+            id: 36,
+            text: `You find yourself at another locked gate. This one is overgrown with plants and flowers too, but you can see it has a key code lock`,
+            question: `What is the combination?`,
+            images: ['flowers/bloodroot.jpg', 'flowers/foxglove.jpg', 'flowers/anenome.jpg', 'flowers/nightshade.jpg'],
+            solutions: ['9165'],
+            feedback: "It's a 4-digit code.",
+            next: {
+                '9165': 37
+            },
+            hint: 'Each flower will give you a number',
+            canGoBack: true
+        },
 
-        // suitcases
-        
-        // keycode w. flowers 
+        {
+            id: 37,
+            text: `Behind the gate is a walled garden, with a second gate on the other side. Depsite being so overgrown, it is quite pretty, and has statues, a sundial, and Rachel is here. "What time is it?", she asks you.`,
+            question: `What time is it?`,
+            images: ['plant_pot.jpg', 'sundial.jpg'],
+            solutions: ['5'],
+            feedback: 'Enter the time in 12-hour format to the nearest hour, for example "1" or "2"',
+            next: {
+                '5': 38
+            },
+            hint: 'at the start of the game, did you notice how you were told what time it was?',
+            canGoBack: true
+        },
 
 
-        // key for snake door lock 
+        {
+            id: 38,
+            text: `Rachel thanks you. She points at the door and tells you that you should leave now, and that this is the way out. She doesn't have the key on her, it must have fallen from her bag`,
+            question: ``,
+            images: ['black_door_padlock'],
+            solutions: ['Rachel\'s rucksack', 'rucksack'],
+            feedback: "Type the name of the place you got the key",
+            next: {
+                'end': 'end'
+            },
+            canGoBack: true
+        },
 
+        // abandoned petrol pump and bike 
 
 
     ],
     end: {
         text: `You have survived the poison garden. Don't eat the bluebells.`,
-        images: 'bluebells_sunshine_game_end.jpg',
+        images: ['bluebells_sunshine_game_end.jpg'],
     }
 
 }

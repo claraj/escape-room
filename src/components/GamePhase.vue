@@ -6,9 +6,14 @@
         <p>{{ gameData.question}}
         
         <input @keyup.enter="checkAnswer" v-model="userAnswer">
-        <button @click="checkAnswer">Enter</button>
+        <button class="answer" @click="checkAnswer">Enter</button>
         
-        <p v-if="showFeedback">{{ this.gameData.feedback }}</p>
+        <p ref="feedback" v-show="showFeedback">{{ this.gameData.feedback }}</p>
+
+<div v-show="gameData.hint">
+        <button class="hint" @click="hint">{{ hintText }}</button>
+        <p v-show="showHint" ref="hint">{{this.gameData.hint}}</p>
+</div>
     </div>
     </div>
 </template>
@@ -23,7 +28,9 @@ export default {
         gameData: {},
         leaving: false,
     userAnswer: '',
-    showFeedback: false
+    showFeedback: false,
+    showHint: false,
+    hintText: 'Show hint?'
     } },
     created() {
         this.loadThisStep()
@@ -68,7 +75,14 @@ export default {
             }
             else {
                 this.showFeedback = true
+                this.$nextTick( () => this.$refs.feedback.scrollIntoView() )
             }
+        },
+
+        hint() {
+            this.showHint = !this.showHint 
+            this.hintText = this.showHint ?  'Hide hint' : 'Show hint?'
+            this.$nextTick( () => this.$refs.hint.scrollIntoView() )
         }
     },
     computed: {
@@ -104,10 +118,19 @@ export default {
         margin-top: 5px;
     }
 
-    button {
+    button.answer {
         margin-top: 5px;
         font-size: 1em;
         font-family: 'Chelsea Market', cursive;
         background: greenyellow;
     }
+
+    button.hint {
+        margin-top: 5px;
+        text-align: end;
+        font-size: 1em;
+        font-family: 'Chelsea Market', cursive;
+        background: lightgray;
+    }
+
 </style>
