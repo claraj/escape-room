@@ -38,7 +38,7 @@ export default {
         },
         image() {
             
-            return  `/img/${this.gameData.image}`
+            return  `/img/${this.gameData.images[0]}`
         }
     }
 }

@@ -1,8 +1,8 @@
 <template>
     <div>
         <div v-if="gameData">
-        <p> {{ gameData.text }}</p>
-        <img v-show="!leaving" class="game-image" :src="image">
+        <pre> {{ gameData.text }}</pre>
+        <img v-for="image in images" v-show="!leaving" class="game-image" :src="image">
         <p>{{ gameData.question}}
         
         <input @keyup.enter="checkAnswer" v-model="userAnswer">
@@ -72,10 +72,12 @@ export default {
         }
     },
     computed: {
-                image() {
-            
-            return  `/img/${this.gameData.image}`
-        }
+        images() {    
+            return this.gameData.images.map( img =>  `/img/${img}` )
+        },
+        // text() {
+        //     return this.gameData.text.replace('\t', '')
+        // }
     }
 }
 </script>
@@ -87,10 +89,25 @@ export default {
     }
 
     pre {
- white-space: pre-wrap;       /* css-3 */
- white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
- white-space: -pre-wrap;      /* Opera 4-6 */
- white-space: -o-pre-wrap;    /* Opera 7 */
- word-wrap: break-word;       /* Internet Explorer 5.5+ */
-}
+        font-family: 'Chelsea Market', cursive;
+        white-space: pre-wrap;       /* css-3 */
+        white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+        white-space: -pre-wrap;      /* Opera 4-6 */
+        white-space: -o-pre-wrap;    /* Opera 7 */
+        word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
+
+    input {
+        display: block;
+        margin: auto;
+        font-size: 1em;
+        margin-top: 5px;
+    }
+
+    button {
+        margin-top: 5px;
+        font-size: 1em;
+        font-family: 'Chelsea Market', cursive;
+        background: greenyellow;
+    }
 </style>

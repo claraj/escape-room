@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <game-title :title="title"></game-title> -->
+    <game-title :title="title"></game-title>
     <router-view @game-start="gameStart"></router-view>
 
   </div>
@@ -17,7 +17,7 @@ export default {
   },
   data() { 
     return {
-      title: "Welcome to the Escape Game"
+      title: "The Poison Garden"
     }
   },
   created() {
