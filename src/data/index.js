@@ -22,54 +22,77 @@ It's 11am, British Standard Time.`,
 
         {
             id: 2,
-            text: `Your friend trips over a dead branch lying on the ground. Unfortunately that was the only thing holding the gates open, and they slam shut behind you and your friends. You try to move the gates open but they are massively heavy. The walls, despite their age, are very smooth and impossible to climb. You had better try looking for another way out.`,
-            question: 'Follow the wall to the left, or right?',
+            text: `Your friend trips over a dead branch lying on the ground. Unfortunately that was the only thing holding the gates open, and they slam shut behind you and your friends. You try to move the gates open but they are massively heavy. The walls, despite their age, are very smooth and impossible to climb. You had better try looking for another way out.  
+Ahead of you, you see a small pond. `,
+            question: 'Keep walking towards the pond?',
             images: ['closed_entrance_gates.jpg'],
-            solutions: ['left', 'right'],
-            feedback: 'Type "left", or "right".',
+            solutions: ['yes'],
+            feedback: 'Type "yes" to continue.',
             next: {
-                left: 3,
-                right: 30
+                yes: 3
             },
             canGoBack: true
         },
 
         {
             id: 3,
-            text: `You follow the wall to the left. 
-            You come to a small pond. It's fringed with water hemlock and calla. Water lilies bob on small waves in the green water. There are a number of abandoned items here, a canoe, and a bunch of beehives in the distance. Weeds plait their way over everything. You start feeling a sense of dread, locked in this place. Hopefully this is not permanent.`,
+            text: `Here's a tree, with yellow flowers. There are some small signs at the base of the tree. You walk over. The first sign says
+
+"Welcome to the Poison Garden"
+
+The second sign says
+
+"I'm a laburnum tree. Remember that my seeds are very poisionous, and make a note that my wood can be used to make a woodwind musical instrument."
+            `,
+            question: 'What instrument?',
+            images: ['laburnum.jpg'],
+            solutions: ['recorder', 'recorders'],
+            feedback: '',
+            next: {
+                recorders: 4,
+                recorder: 4
+            },
+            hint: 'Maybe you played a plastic version in school',
+            canGoBack: true
+        },
+
+
+        {
+            id: 4,
+            text: `
+            You come to a small pond. It's fringed with water hemlock and calla. Water lilies bob on small waves in the green water. There are a number of abandoned items here, a canoe, and a bunch of beehives in the distance. Weeds plait their way over everything. You start feeling a sense of dread, locked in this place. You'd rather be home with a cup of tea and a bun. Hopefully this is not permanent.`,
             question: `Continue?`,
             images: ['abandoned_canoe.jpg'],
             solutions: ['yes'],
             feedback: 'Type "yes" to continue',
             next: {
-                yes: 4,
-            },
-            canGoBack: true
-        },
-
-        {
-            id: 4,
-            text: `You walk away from the pond. It's much cooler and a mist is setting in. You come across a woman sitting in the path. Hopefully she can tell you the way out.
-            
-            You cough to attract attention, she's obviously not expecting to see anyone. "Excuse me?" 
-
-            She turns to you, and says,
-            "Call me by my name, if you want to talk to me!"
-            `,
-            question: `What is her name?`,
-            images: ['woman_sitting_fog.jpg'],
-            solutions: ['rachel'],
-            feedback: 'Enter a name',
-            hint: 'Clues are on the last page',
-            next: {
-                rachel: 5,
+                yes: 5,
             },
             canGoBack: true
         },
 
         {
             id: 5,
+        text: `You walk away from the pond. It's much cooler and a mist is setting in. You come across a woman sitting in the path. Hopefully she can tell you the way out.
+        
+You cough to attract attention, she's obviously not expecting to see anyone. "Excuse me?" you call. 
+
+She turns to you, and says,
+"Call me by my name, if you want to talk to me!"
+            `,
+            question: `What is her name?`,
+            images: ['woman_sitting_fog.jpg'],
+            solutions: ['rachel'],
+            feedback: 'Enter a name',
+            hint: 'Clues are on the last page. If you guess her name, maybe she\'ll be Friends with you?',
+            next: {
+                rachel: 6,
+            },
+            canGoBack: true
+        },
+
+        {
+            id: 6,
             text: `
             Rachel turns to look at you, and decides she doesn't want to talk to you anyway. She turns away and runs off into the woods. The woods are getting deeper and many of the trees are half-covered in ivy, and moss on one side of their trunks. 
             `
@@ -78,44 +101,57 @@ It's 11am, British Standard Time.`,
             images: ['ivy_tree.jpg'],
             solutions: ['south'],
             feedback: 'Enter a compass direction.',
-            hint: 'what side of a tree does moss and ivy grow? Remember you are looking directly at the tree.',
+            hint: 'what side of a tree does moss and ivy grow? You are looking directly at the most densely covered side of the tree.',
             next: {
-                south: 6,
+                south: 7,
+            },
+            canGoBack: true
+        },
+        {
+            id: 7,
+            text: `You are disoriented, you can't see the gates you came through. So south seems a good as direction as any. You walk a few hundred meters and find that you've gone in a circle and find youself back at the gates. Where to now?`,
+            question: 'Follow the wall to the left, or right?',
+            images: ['closed_entrance_gates.jpg'],
+            solutions: ['left', 'right'],
+            feedback: 'Type "left", or "right".',
+            next: {
+                left: 10,
+                right: 30
             },
             canGoBack: true
         },
 
         {
-            id: 6,
+            id: 10,
             text: `
-            South seems a good direction as any to go in. You lost track of the wall you were following a while ago. 
-            
-            You come across a rucksack hanging on a tree. It must be Rachel's, it looks just like the one she was wearing. 
+You follow the wall to the left. 
+
+You come across a rucksack hanging on a tree. It must be Rachel's, it looks just like the one she was carrying. 
             `
             ,
             question: `Are you going to open the backpack, or keep walking?`,
             images: ['rucksack_hanging_tree.jpg'],
             solutions: ['open', 'walk'],
-            feedback: '"Open" or "Walk"',
+            feedback: 'Type "Open" or "Walk"',
             // hint: '',
             next: {
-                open: 7,
-                walk: 8
+                open: 11,
+                walk: 13
             },
             canGoBack: true
         },
 
 
         {
-            id: 7,
+            id: 11,
             text: `
-            Looking in someone else's bag isn't something you usually do, but this isn't a normal situation.
-            
-            Inside the bag is a key, and a book. You've never seen flowers used as a bookmark before.
+Looking in someone else's bag isn't something you usually do, but this isn't a normal situation.
 
-            You slip the key into your pocket. 
+Inside the bag is a key, and a book, with flowers marking a page.
 
-            You feel weird about looking in someone else's things. You put the book back quickly and keep walking. 
+You slip the key into your pocket. 
+
+You feel weird about looking in someone else's things. You put the book back quickly and keep walking. 
             `
             ,
             question: `Continue?`,
@@ -124,15 +160,15 @@ It's 11am, British Standard Time.`,
             feedback: '"Yes" to continue',
             // hint: '',
             next: {
-                yes: 8,
+                yes: 12,
             },
             canGoBack: true
         },
 
+
         {
-            id: 8,
-            text: `
-            More weird abandoned junk, and more hemlocks.  
+            id: 12,
+            text: `More weird abandoned junk, and more hemlocks.  
             `
             ,
             question: `Continue?`,
@@ -141,15 +177,15 @@ It's 11am, British Standard Time.`,
             feedback: '"Yes" to continue',
             // hint: '',
             next: {
-                yes: 9,
+                yes: 13,
             },
             canGoBack: true
         },
 
         {
-            id: 9,
+            id: 13,
             text: `
-            There's a wall with an opening ahead. There's another gate here but this one seems to have been used more recently. It's locked but there is a keypad for entering a code.    
+There's a wall with an opening ahead. There's another gate here but this one seems to have been used more recently. It's locked but there is a keypad for entering a code.    
             `
             ,
             question: `What is the code?`,
@@ -158,47 +194,47 @@ It's 11am, British Standard Time.`,
             feedback: 'Enter a 3-digit number',
             hint: 'Try looking in the rucksack again?',
             next: {
-                "130": 10,
+                "130": 14,
             },
             canGoBack: true
         },
        
         {
-            id: 10,
+            id: 14,
             text: `
-            The gate opens. You would have thought this was the way out, but it doesn't feel like it.    
+The gate opens. You would have thought this was the way out, but it doesn't feel like it.    
 
-            Even though the gates were used quite recently, you've still disturbed some local wildlife. This one looks like it's calculating to bite you. 
+Even though the gates were used quite recently, you've still disturbed some local wildlife. This one looks like it's calculating to bite you. 
             `
             ,
             question: `What is this creature?`,
             images: ['adder.jpg'],
             solutions: ['adder'],
-            feedback: '',
+            feedback: 'What type of snake?',
             hint: 'Obviously it\'s a snake. What type?',
             next: {
-                "adder": 11,
+                "adder": 15,
             },
             canGoBack: true
         },
 
         {
-            id: 11,
+            id: 15,
             text: `
-                You give the snake plenty of space, and continue through the gate. 
-                There's a path to follow, and you arrive at at tunnel. There must have been train tracks here, many years ago.
+You give the snake plenty of space, and continue through the gate. 
+There's a path to follow, and you arrive at at tunnel. There must have been train tracks here, many years ago.
 
-                The walls of the tunnel have graffiti, and names scratched into the smoke marks on the stone . Some are hard to read, but you can make out Rachel's name. 
+The walls of the tunnel have graffiti, and names scratched into the smoke marks on the stone. Some are hard to read, but you can make out Rachel's name. 
 
-                There are two words where you can read the start, and the middle letters, but it's hard to tell exactly how many letters are missing.
+There are two other names where you can read the start, and the end letters, but you can't make out the rest.
 
-                "Cl~~~~~"
-                "~~~~~as" 
+"Cl~~~"
+"~~~~~as" 
 
-                On the other side of the tunnel, the old railway tracks lead right. There's a path through the woods to the left. 
+On the other side of the tunnel, the old railway tracks lead to the right. There's a path through the woods to the left. 
 
-                To the left, you see a building.
-                To the right, you see the train tracks leading to a bridge over some water.
+To the right, you see the train tracks leading to a bridge over some water.
+To the left, you see a building.
             `
             ,
             question: `Which way?`,
@@ -206,38 +242,38 @@ It's 11am, British Standard Time.`,
             solutions: ['left', 'right'],
             feedback: 'Enter "Left" or "Right".',
             next: {
-                "right": 30,
-                "left": 12,
+                "right": 50,
+                "left": 30,
             },
             canGoBack: true
         },
 
         {
-            id: 12,
+            id: 50,
             text: `
-            You wouldn't take a train over this bridge but it seems sturdy enough to walk on. Underfoot, each sleeper has a word written on it.
-            
-            Amanita
-            Boletus
-            Claviceps
-            Entoloma
-            Hypholoma
-            Lactarius
-            Lepiota
-            Omphalotus            
-            Tricholoma
-            Trogia
+You wouldn't take a train over this bridge but it seems sturdy enough to walk on. 
 
-            The next sleepers are missing. The gap is too big to cross. You had better turn back. 
+Underfoot, each sleeper has a word written on it.
 
-            `
+Amanita
+Boletus
+Entoloma
+Tricholoma
+Lactarius
+Claviceps
+Hypholoma
+Lepiota
+Omphalotus
+Trogia
+
+The next sleepers are missing. The gap is too big to cross. You had better turn back.`
             ,
             question: `Turn back?`,
             images: ['bridge_daylight.jpg'],
             solutions: ['yes'],
             feedback: 'Type yes to continue',
             next: {
-                yes: 11
+                yes: 15
             },
             canGoBack: true
         },
@@ -249,24 +285,26 @@ It's 11am, British Standard Time.`,
             id: 30,
             text: `After walking a short way, you come to the building. No-one has lived here for years. There's another wall with a locked gate here too.
             
-            You walk into the building. Once, it was a stately home, but now the plants are taking it over. As you walk through the house, some of the inner rooms are still very grand, although very dusty. You decide to try and find the key for the locked gate outside. Perhaps it's hidden under something?`,
+            You walk into the building. Once, it was a stately home, but now there are belongings and papers scattered on the floor, and the bracken and other plants are taking it over. As you walk through the house, some of the inner rooms are still very grand, although very dusty. You decide to try and find the key for the locked gate outside. Perhaps it's hidden under something?`,
 
             question: `Where will you look for the gate key?`,
-            images: ['inside_ruined_building.jpg','inside_building.jpg', 'wood_floor_room.jpg', 'abandoned_fancy_room.jpg'],
+            images: ['inside_ruined_building.jpg','inside_building.jpg', 'periodic_table.jpg', 'wood_floor_room.jpg', 'abandoned_fancy_room.jpg'],
             solutions: ['tablecloth', 'table cloth'],
             feedback: 'Type the name of the item you will look under',
             next: {
                 tablecloth: 31,
                 'table cloth': 31
             },
-            hint: 'Use the words on the bridge',
+            hint: 'Have you been to the bridge yet?',
             canGoBack: true
         },
 
 
         {
             id: 31,
-            text: `The gate unlocks.  Beyond it there is a lot of ragweed and belladonna, and more junk here, including a stack of worn suitcases. You remember the key you took from Rachel's rucksack. Perhaps it will open a suitcase?`,
+            text: `The gate unlocks.  Beyond it there is a lot of ragweed and belladonna, and more junk here, including a stack of worn suitcases. 
+            
+You remember the key you took from Rachel's rucksack. Perhaps it will open a suitcase?`,
             question: `Which suitcase will you try?`,
             images: ['suitcases.jpg'],
             solutions: ['top', 'middle', 'bottom'],
@@ -282,12 +320,14 @@ It's 11am, British Standard Time.`,
 
         {
             id: 32,
-            text: `Inside the suitcase is TODO`,   /** petrol pump/bike clue */
-            images: ['suitcases.jpg'],
-            solutions: [''],
-            feedback: '',
+            text: `The key opens the suitcase. Inside the suitcase is another key. You put it in your pocket.`,   /** petrol pump/bike/recorder clue */
+            images: ['key.jpg'],
+            question: 'Do you want to try another suitcase, or keep walking?',
+            solutions: ['yes', 'walk'],
+            feedback: 'Type "yes" to try another suitcase, "walk" to keep walking.',
             next: {
-                cliff: 40
+                yes: 31,
+                walk: 40
             },
             canGoBack: true
         },
@@ -295,9 +335,11 @@ It's 11am, British Standard Time.`,
         {
             id: 33,
             text: `You open the top suitcase. There is a wide-mouthed frog inside.
-            "This is my house!" said the frog. "Guess who gave me this suitcase!" 
-            You have no idea. You suppose it's someone who used to live in the house. "Can you give me a clue?" You ask the frog.
-            "What do you call a man with a seagull on his head?" asks the frog.`,
+"This is my house!" said the frog. "Guess who gave me this suitcase!" 
+
+You have no idea. You suppose it's someone who used to live in the house. "Can you give me a clue?", you ask the frog.
+
+"What do you call a man with a seagull on his head?" asks the frog.`,
             images: ['top_frog.jpg'],
             solutions: ['cliff'],
             feedback: 'Who owns this suitcase?',
@@ -310,9 +352,12 @@ It's 11am, British Standard Time.`,
         {
             id: 34,
             text: `You open the middle suitcase. There is a wide-mouthed frog inside.
-            "This is my house!" said the frog. "Guess who gave me this suitcase!" 
-            You have no idea. You suppose it's someone who used to live in the house. "Can you give me a clue?" You ask the frog.
-            "What do you call a man without a spade on his head?" asks the frog.`,
+
+"This is my house!" said the frog. "Guess who gave me this suitcase!" 
+
+You have no idea. You suppose it's someone who used to live in the house. "Can you give me a clue?" You ask the frog.
+
+"What do you call a man without a spade on his head?" asks the frog.`,
 
             images: ['middle_frog.jpg'],
             solutions: ['douglas'],
@@ -325,7 +370,7 @@ It's 11am, British Standard Time.`,
 
         {
             id: 35,
-            text: `The frog is impressed by your knowlege. It tells you that the way out is close by, but you need to go through two more locked gates to get out.`,
+            text: `The frog is not impressed by your clever guess. "Hg!" it grunts. You replace the lid of the suitcase. `,
             images: ['top_frog.jpg'],
             question: 'Do you want to try another suitcase?',
             solutions: ['yes'],
@@ -338,13 +383,13 @@ It's 11am, British Standard Time.`,
 
         {
             id: 36,
-            text: `The frog is impressed by your knowlege. It tells you that `,  /** ???  */
+            text: `"As!" sneezes the frog, It seems unimpressed by your knowlege. You gently close the lid of the suitcase.`, 
             images: ['middle_frog.jpg'],
             question: 'Do you want to try another suitcase?',
             solutions: ['yes'],
             feedback: 'Type "yes" to try another suitcase',
             next: {
-                yes: 31
+                yes: 31,
             },
             canGoBack: true
         },
@@ -354,7 +399,7 @@ It's 11am, British Standard Time.`,
 
         {
             id: 40,
-            text: `You find yourself at another locked gate. This one is overgrown with plants and flowers too, but you can see it has a key code lock`,
+            text: `You find yourself at another locked gate. This one is overgrown with plants and flowers too, but you can see it has a key code lock.`,
             question: `What is the combination?`,
             images: ['flowers/bloodroot.jpg', 'flowers/foxglove.jpg', 'flowers/anenome.jpg', 'flowers/nightshade.jpg'],
             solutions: ['9165'],
@@ -366,11 +411,17 @@ It's 11am, British Standard Time.`,
             canGoBack: true
         },
 
+
+    
+
+
         {
             id: 41,
-            text: `Behind the gate is a walled garden, with a second gate on the other side. Depsite being so overgrown, it is quite pretty, and has statues, a sundial, and Rachel is here. "What time is it?", she asks you.`,
+            text: `Behind the gate is a walled garden, with a second gate on the other side. Depsite being so overgrown, it is quite pretty, and has statues, and a sundial.
+
+Rachel is here. "What time is it?", she asks you.`,
             question: `What time is it?`,
-            images: ['plant_pot.jpg', 'sundial.jpg'],
+            images: ['sundial.jpg'],
             solutions: ['5'],
             feedback: 'Enter the time in 12-hour format to the nearest hour, for example "1" or "2"',
             next: {
@@ -383,23 +434,53 @@ It's 11am, British Standard Time.`,
 
         {
             id: 42,
-            text: `Rachel thanks you. She points at the door and tells you that you should leave now, and that this is the way out.`,
-            question: ``,
-            images: ['black_door_padlock'],
-            solutions: ['Rachel\'s rucksack', 'rucksack'],
-            feedback: "Type the name of the place you got the key",
+            text: `Rachel thanks you. She points at the door and tells you that you should leave now, and that this is the way out of the garden. 
+
+There are two padlocks on the door.
+            `,
+            question: `Do you want to try the key from the suitcase?`,
+            images: ['black_door_padlock.jpg'],
+            solutions: ['yes'],
+            feedback: 'Type "yes" to try the key.',
             next: {
-                'end': 'end'
+                'yes': 43
             },
             canGoBack: true
         },
 
+        {
+            id: 43,
+            text: `You try the key from the suitcase and it opens one of the locks. The other lock prevents the door opening. You ask Rachel if she has a key for the other lock.
+            She points to a wooden trunk with a combination lock and walks away.`,
+            question: ``,
+            images: ['combination_lock.jpg'],
+            solutions: ['3380'],
+            feedback: 'Enter a 4-digit code.',
+            next: {
+                '3380': 44
+            },
+            hint: 'What information did you get from the frogs?',
+            canGoBack: true
+        },
+
+        {
+            id: 44,
+            text: `You open the trunk, and find a second key. It fits the second lock.`,
+            question: `Open the door?`,
+            images: ['black_door_padlock.jpg'],
+            solutions: ['yes'],
+            feedback: 'Type "yes" to open the door.',
+            next: 'end',
+            canGoBack: true
+        },
         // abandoned petrol pump and bike 
+        //    // gas & bike 
+
 
 
     ],
     end: {
-        text: `You have survived the poison garden. Don't eat the bluebells.`,
+        text: `You have survived the poison garden. Time to go home for that cup of tea. Don't eat the bluebells.`,
         images: ['bluebells_sunshine_game_end.jpg'],
     }
 

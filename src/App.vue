@@ -2,18 +2,21 @@
   <div id="app">
     <game-title :title="title"></game-title>
     <router-view @game-start="gameStart"></router-view>
-
+<credits></credits>
   </div>
 </template>
 
 <script>
 import EscapeRoomGame from './components/EscapeRoomGame.vue'
 import GameTitle from './components/GameTitle.vue'
+import Credits from './components/Credits.vue'
+
 export default {
   name: 'App',
   components: {
     EscapeRoomGame,
-    GameTitle
+    GameTitle,
+    Credits
   },
   data() { 
     return {
@@ -21,18 +24,18 @@ export default {
     }
   },
   created() {
-    window.addEventListener('beforeunload', function() {
-      //localStorage.userProgress = 30
-      // todo save user progresss 
-      let step = this.$store.state.userProgress.currentStep
-      localStorage.userProgress = step 
+    //window.addEventListener('beforeunload', function() {
+    //   //localStorage.userProgress = 30
+    //   // todo save user progresss 
+    //   let step = this.$store.state.userProgress.currentStep
+    //   localStorage.userProgress = step 
 
-    })
-    // console.log(this.$router.path)
-    let stepFromSession = localStorage.userProgress
-    if (stepFromSession) {
-      this.$store.commit('changeS', stepFromSession)
-    }
+    // })
+    // // console.log(this.$router.path)
+    // let stepFromSession = localStorage.userProgress
+    // if (stepFromSession) {
+    //   this.$store.commit('changeS', stepFromSession)
+    // }
     // todo get user progress from session storage and nav to that page 
 
 

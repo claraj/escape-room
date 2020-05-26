@@ -58,4 +58,11 @@ export default {
         white-space: -o-pre-wrap;    /* Opera 7 */
         word-wrap: break-word;       /* Internet Explorer 5.5+ */
     }
+
+        button {
+        margin-top: 5px;
+        font-size: 1em;
+        font-family: 'Chelsea Market', cursive;
+        background: greenyellow;
+    }
 </style>
