@@ -266,9 +266,9 @@ It's 11am, British Standard Time.`,
 
         {
             id: 31,
-            text: `The gate unlocks. There's more flowers and more junk here, including a stack of worn suitcases. You look in the flower pot, and there's another key there. Perhaps it will open a suitcase?`,
+            text: `The gate unlocks.  Beyond it there is a lot of ragweed and belladonna, and more junk here, including a stack of worn suitcases. You remember the key you took from Rachel's rucksack. Perhaps it will open a suitcase?`,
             question: `Which suitcase will you try?`,
-            images: ['suitcases.jpg', 'ragweed.jpg'],
+            images: ['suitcases.jpg'],
             solutions: ['top', 'middle', 'bottom'],
             feedback: '"Top", "Middle" or "Bottom" suitcase?',
             next: {
@@ -282,12 +282,12 @@ It's 11am, British Standard Time.`,
 
         {
             id: 32,
-            text: ``,
+            text: `Inside the suitcase is TODO`,   /** petrol pump/bike clue */
             images: ['suitcases.jpg'],
-            solutions: ['cliff'],
-            feedback: 'Who owns this suitcase?',
+            solutions: [''],
+            feedback: '',
             next: {
-                cliff: 35
+                cliff: 40
             },
             canGoBack: true
         },
@@ -298,7 +298,7 @@ It's 11am, British Standard Time.`,
             "This is my house!" said the frog. "Guess who gave me this suitcase!" 
             You have no idea. You suppose it's someone who used to live in the house. "Can you give me a clue?" You ask the frog.
             "What do you call a man with a seagull on his head?" asks the frog.`,
-            images: ['suitcases.jpg'],
+            images: ['top_frog.jpg'],
             solutions: ['cliff'],
             feedback: 'Who owns this suitcase?',
             next: {
@@ -314,7 +314,7 @@ It's 11am, British Standard Time.`,
             You have no idea. You suppose it's someone who used to live in the house. "Can you give me a clue?" You ask the frog.
             "What do you call a man without a spade on his head?" asks the frog.`,
 
-            images: ['suitcases.jpg'],
+            images: ['middle_frog.jpg'],
             solutions: ['douglas'],
             feedback: 'Who owns this suitcase?',
             next: {
@@ -326,24 +326,25 @@ It's 11am, British Standard Time.`,
         {
             id: 35,
             text: `The frog is impressed by your knowlege. It tells you that the way out is close by, but you need to go through two more locked gates to get out.`,
-            images: ['middle_frog.jpg'],
+            images: ['top_frog.jpg'],
             question: 'Do you want to try another suitcase?',
             solutions: ['yes'],
-            feedback: 'Type yes to continue',
+            feedback: 'Type "yes" to try another suitcase',
             next: {
-                yes: 36
+                yes: 31
             },
             canGoBack: true
         },
 
         {
             id: 36,
-            text: `The frog is impressed by your knowlege. It tells you that the way out is close by, but you need to go through two more locked gates to get out.`,
-            images: ['top_frog.jpg'],
+            text: `The frog is impressed by your knowlege. It tells you that `,  /** ???  */
+            images: ['middle_frog.jpg'],
+            question: 'Do you want to try another suitcase?',
             solutions: ['yes'],
-            feedback: 'Type yes to continue',
+            feedback: 'Type "yes" to try another suitcase',
             next: {
-                yes: 36
+                yes: 31
             },
             canGoBack: true
         },
@@ -352,28 +353,28 @@ It's 11am, British Standard Time.`,
     
 
         {
-            id: 36,
+            id: 40,
             text: `You find yourself at another locked gate. This one is overgrown with plants and flowers too, but you can see it has a key code lock`,
             question: `What is the combination?`,
             images: ['flowers/bloodroot.jpg', 'flowers/foxglove.jpg', 'flowers/anenome.jpg', 'flowers/nightshade.jpg'],
             solutions: ['9165'],
             feedback: "It's a 4-digit code.",
             next: {
-                '9165': 37
+                '9165': 41
             },
             hint: 'Each flower will give you a number',
             canGoBack: true
         },
 
         {
-            id: 37,
+            id: 41,
             text: `Behind the gate is a walled garden, with a second gate on the other side. Depsite being so overgrown, it is quite pretty, and has statues, a sundial, and Rachel is here. "What time is it?", she asks you.`,
             question: `What time is it?`,
             images: ['plant_pot.jpg', 'sundial.jpg'],
             solutions: ['5'],
             feedback: 'Enter the time in 12-hour format to the nearest hour, for example "1" or "2"',
             next: {
-                '5': 38
+                '5': 42
             },
             hint: 'at the start of the game, did you notice how you were told what time it was?',
             canGoBack: true
@@ -381,8 +382,8 @@ It's 11am, British Standard Time.`,
 
 
         {
-            id: 38,
-            text: `Rachel thanks you. She points at the door and tells you that you should leave now, and that this is the way out. She doesn't have the key on her, it must have fallen from her bag`,
+            id: 42,
+            text: `Rachel thanks you. She points at the door and tells you that you should leave now, and that this is the way out.`,
             question: ``,
             images: ['black_door_padlock'],
             solutions: ['Rachel\'s rucksack', 'rucksack'],

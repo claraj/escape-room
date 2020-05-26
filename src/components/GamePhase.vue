@@ -65,13 +65,17 @@ export default {
                     
             if (this.gameData.solutions.includes(answer)) {
 
+                if (this.gameData.next == 'end') {
+                    this.$router.push( {name: 'end'} )
+                }
+                else {
                 // where to next? 
                 let idNext = this.gameData.next[answer]
                 console.log("NEXT ID" + idNext)
                 this.$store.commit('changeStep', idNext)
                         this.leaving = true
                 this.$router.push( {name: 'game', query: {step: idNext }} )
-
+                }
             }
             else {
                 this.showFeedback = true
