@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: process.env.NOCE_ENV === 'production'
+    publicPath: process.env.NODE_ENV === 'production'
     ? 'escape-room'
     : '/'
 }
