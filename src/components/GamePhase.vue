@@ -90,7 +90,7 @@ export default {
             }
         },
 
-        hint() {33
+        hint() {
             this.showHint = !this.showHint 
             this.hintText = this.showHint ?  'Hide hint' : 'Show hint?'
             this.$nextTick( () => this.$refs.hint.scrollIntoView() )
