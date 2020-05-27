@@ -3,8 +3,6 @@
 # abort on errors
 set -e
 
-echo $NODE_ENV
-
 # build
 npm run build
 

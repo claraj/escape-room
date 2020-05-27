@@ -16,6 +16,8 @@ export default {
     name: 'Welcome',
     data() { return {
         // gameData: {}
+        
+    publicPath: process.env.BASE_URL
     } },
     beforeCreate() {
     
@@ -38,7 +40,7 @@ export default {
         },
         image() {
             
-            return  `/img/${this.gameData.images[0]}`
+            return `${this.publicPath}img/${this.gameData.images[0]}`
         }
     }
 }

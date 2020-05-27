@@ -16,6 +16,8 @@ export default {
     name: 'Welcome',
     data() { return {
         // gameData: {}
+        
+    publicPath: process.env.BASE_URL
     } },
     beforeCreate() {
     
@@ -29,7 +31,7 @@ export default {
             return this.$store.state.gameData.gameData.end
         },
         image() {
-            return  `/img/${this.gameData.images[0]}`
+            return  `${this.publicPath}img/${this.gameData.images[0]}`
         }
     }
 }
