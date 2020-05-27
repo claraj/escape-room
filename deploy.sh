@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 
 # abort on errors
-# set -e
+set -e
+
+echo $NODE_ENV
 
 # build
 npm run build

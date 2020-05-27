@@ -35,7 +35,8 @@ export default {
     userAnswer: '',
     showFeedback: false,
     showHint: false,
-    hintText: 'Show hint?'
+    hintText: 'Show hint?',
+    publicPath: process.env.BASE_URL
     } },
     created() {
         this.loadThisStep()
@@ -98,7 +99,7 @@ export default {
     },
     computed: {
         images() {    
-            return this.gameData.images.map( img =>  `/img/${img}` )
+            return this.gameData.images.map( img =>  `${this.publicPath}img/${img}` )
         },
     }
 }
